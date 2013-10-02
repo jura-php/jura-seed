@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Stylesheet</title>
+
+	<style>
+		.ss-main {
+			padding: 40px 60px;
+		}
+
+		.ss-l-header {
+			margin-bottom: 2em;
+			border-bottom: 1px solid rgb(233, 233, 233);
+		}
+
+		.ss-l-inline-spaced > * {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		.ss-title {
+			color: rgb(34, 34, 34);
+			font-weight: 700;
+			font-size: 3em;
+			line-height: 1;
+			letter-spacing: -0.03125em;
+			margin: 0.5em 0px;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.ss-subtitle {
+			color: #666;
+			font-weight: 300;
+			font-size: 1.5em;
+			line-height: 1.2;
+			margin: 0.6667em 0 1em;
+		}
+
+		.ss-color {
+			border-radius: 10px;
+			width: 80px;
+			height: 80px;
+			content: ' ';
+		}
+
+		.ss-widget {
+			margin-bottom: 2em;
+		}
+
+		.ss-widget-title {
+			color: rgb(34, 34, 34);
+			font-weight: 700;
+			font-size: 2em;
+			line-height: 1;
+			letter-spacing: -0.03125em;
+			margin: 0.5em 0 0;
+			-webkit-font-smoothing: antialiased;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.ss-widget-subtitle {
+			color: #666;
+			font-weight: 300;
+			font-size: 1em;
+			line-height: 1.2;
+			margin: 0.6667em 0 1em;
+		}
+
+		.ss-widget-code {
+			padding: 2px 4px;
+			font-size: 90%;
+			color: #c7254e;
+			white-space: nowrap;
+			background-color: #f9f2f4;
+			border-radius: 4px;
+			font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+		}
+
+		.ss-widget-example {
+			border-radius: 4px 4px 0 0;
+			background-color: #fafafa;
+			box-shadow: inset 0 3px 6px rgba(0,0,0,.05);
+			border: 1px solid #ddd;
+			padding: 1em;
+
+		}
+
+	</style>
+
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+		<div class="ss-main">
+			<div class="ss-l-header">
+				<h1 class="ss-title">CSS Styleguide</h1>
+				<h1 class="ss-subtitle">A general view of common elements on the website</h1>
+			</div>
+
+			<div class="ss-l-content">
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Colors</h3>
+					<h3 class="ss-widget-subtitle">The main colors of the template</h3>
+
+					<div class="ss-widget-example">
+						<div class="ss-l-inline-spaced">
+							<div class="ss-color" style="background: rgb(120, 180, 180);"></div>
+							<div class="ss-color" style="background: rgb(180, 120, 180);"></div>
+							<div class="ss-color" style="background: rgb(120, 180, 120);"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Headings</h3>
+					<h3 class="ss-widget-subtitle">All the main headings</h3>
+
+					<div class="ss-widget-example">
+						<h1>h1 Heading</h1>
+						<h2>h2 Heading</h2>
+						<h3>h3 Heading</h3>
+						<h4>h4 Heading</h4>
+						<h5>h5 Heading</h5>
+						<h6>h6 Heading</h6>
+					</div>
+				</div>
+
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Paragraphs</h3>
+					<h3 class="ss-widget-subtitle">Normal texts <code class="ss-widget-code">&lt;p&gt;&lt;p&gt;</code></h3>
+
+					<div class="ss-widget-example">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, necessitatibus, ipsa, pariatur odio eos voluptates facilis voluptas omnis repellat alias at animi odit assumenda laboriosam doloribus voluptate sequi magnam dignissimos.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident, necessitatibus, ipsa, pariatur odio eos voluptates facilis voluptas omnis repellat alias at animi odit assumenda laboriosam doloribus voluptate sequi magnam dignissimos.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur <em>emphzis</em> elit. Provident, necessitatibus, ipsa, pariatur odio eos voluptates facilis voluptas omnis repellat alias at animi odit assumenda laboriosam doloribus voluptate sequi magnam dignissimos.</p>
+					</div>
+				</div>
+
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Links</h3>
+					<h3 class="ss-widget-subtitle">Styles for links with hover, active and focus styles <code class="ss-widget-code">&lt;a href=""&gt;&lt;/a&gt;</code></h3>
+
+					<div class="ss-widget-example">
+						<a href="#">Link</a>
+					</div>
+				</div>
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Buttons</h3>
+					<h3 class="ss-widget-subtitle">Form buttons and link buttons <code class="ss-widget-code">.btn</code></h3>
+
+
+					<div class="ss-widget-example">
+
+						<div class="ss-l-inline-spaced">
+							<a href="#" class="btn">Link Button</a>
+							<input type="button" class="btn" value="Input Button" />
+							<button>Button</button>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Inputs</h3>
+					<h3 class="ss-widget-subtitle">Text inputs <code class="ss-widget-code">.input-text</code></h3>
+
+					<div class="ss-widget-example">
+						<input type="text" class="input-text" placeholder="Placeholder" />
+					</div>
+				</div>
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Select</h3>
+					<h3 class="ss-widget-subtitle">Single select <code class="ss-widget-code">.select</code></h3>
+
+					<div class="ss-widget-example">
+						<select>
+							<option value="">Default value</option>
+							<option value="">Value 1</option>
+							<option value="">Value 2</option>
+							<option value="">Value 3</option>
+							<option value="">Value 4</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Checkbox Label</h3>
+					<h3 class="ss-widget-subtitle">Checkbox <code class="ss-widget-code">label.checkbox</code></h3>
+
+					<div class="ss-widget-example">
+						<label class="checkbox">
+							<input type="checkbox"> Li e aceito os <a href="#">termos de uso</a>.
+						</label>
+					</div>
+				</div>
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Error Message</h3>
+					<h3 class="ss-widget-subtitle">Error messages <code class="ss-widget-code">.message-error</code></h3>
+
+					<div class="ss-widget-example">
+						<p class="message-error">
+							Ops! Ocorreu um erro
+						</p>
+					</div>
+				</div>
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Success Message</h3>
+					<h3 class="ss-widget-subtitle">Error messages <code class="ss-widget-code">.message-error</code></h3>
+
+					<div class="ss-widget-example">
+						<p class="message-error">
+							Tudo belezinha!
+						</p>
+					</div>
+				</div>
+
+
+				<div class="ss-widget">
+					<h3 class="ss-widget-title">Loader Spinner</h3>
+					<h3 class="ss-widget-subtitle">Used normaly on forms  <code class="ss-widget-code">.loader-spinner</code></h3>
+
+					<div class="ss-widget-example">
+						<span class="loader-spinner">Carregando...</a>
+					</div>
+				</div>
+
+			</div>
+		</main>
+</body>
+</html>

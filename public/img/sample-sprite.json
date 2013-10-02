@@ -1,0 +1,16 @@
+{
+  "name": "sample-sprite",
+  "checksum": "e6bf5d119d8d41aab9f94386bfa05ef0",
+  "shortsum": "e6bf5",
+  "images": [
+    {
+      "name": "joy",
+      "filename": "joy.png",
+      "checksum": "0dbf84a18a5ce8ae000c1a4468e912e3",
+      "width": 143,
+      "height": 68,
+      "positionX": 0,
+      "positionY": 0
+    }
+  ]
+}

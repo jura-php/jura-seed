@@ -1,0 +1,3 @@
+var plugin = {
+	deletar: true
+};

@@ -1,0 +1,1 @@
+chmod -Rf 777 app/storage/

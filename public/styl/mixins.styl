@@ -1,0 +1,23 @@
+font-face(family, file = family)
+	@font-face {
+		font-family: family
+		src: url(file+'.eot')
+		src: url(file+'.eot?#iefix') format('embedded-opentype'), url(file+'.woff') format('woff'), url(file+'.ttf') format('truetype'), url(file+'.svg#'+family) format('svg')
+		font-weight: normal
+		font-style: normal
+	}
+
+
+
+display()
+	if(arguments[0] == inline-block)
+		display: inline-block;
+		zoom: 1;
+		*display: inline;
+
+	else
+		display arguments[0]
+
+ir()
+	font-size 0
+	line-height 0

@@ -1,0 +1,21 @@
+{
+  "name": "joy-frontend-bootstrap",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Joy Interactive",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-imagemin": "0.1.2",
+    "grunt-contrib-concat": "~0.2.0",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-manifest": "latest",
+    "grunt-usemin": "latest",
+    "grunt-contrib-cssmin": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-stylus": "~0.8.0",
+    "grunt-stylus-sprite": "~1.0.1",
+    "nib": "~1.0.1"
+  }
+}
