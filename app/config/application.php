@@ -4,10 +4,9 @@ return array(
 	"key" => "wgoKzmYuVRSRsZZsemSEKCFg8Pg0asY5",
 
 	//use or not the build version
-	"build" => array(
-		"css" => false,
-		"js" => false
-	),
+	"usedist" => false,
+	"publicSrc" => "public/",
+	"publicDist" => "public/_dist/",
 
 	//allowed directories that can have files downloaded from
 	"downloadPaths" => array(

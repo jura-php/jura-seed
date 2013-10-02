@@ -1,1 +1,0 @@
-var plugin={deletar:!0},plugin={deletar:!0},plugin={deletar:!0};!function(){"use strict";console.log("Deletar o arquivo /js/vendor/plugin.js",plugin.deletar)}();
