@@ -15,7 +15,7 @@
 	<!-- -->
 
 	<?php if(!Config::item('usedist')){ ?>
-	<link rel="stylesheet" href="<?=Config::item('publicSrc')?>css/main.css">
+	<link rel="stylesheet" href="css/main.css">
 	<?php } else { ?>
 	<link rel="stylesheet" href="<?=Config::item('publicDist')?>css/main.css">
 	<?php } ?>

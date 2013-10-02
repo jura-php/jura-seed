@@ -1,0 +1,10 @@
+public/_dist/css/main.css:public/css/main.css
+public/_dist/js/main-built.js:public/js/main.js
+public/_dist/js/main-built.js:public/js/vendor/gaTrackers/gaTrackers.js
+public/_dist/js/main-built.js:public/js/vendor/jquery/jquery-1.10.1.js
+public/_dist/js/main-built.js:public/js/vendor/lodash/lodash.compat.js
+public/_dist/js/main-built.js:public/js/vendor/mbone/mbone-1.0.0.js
+public/_dist/img/sample-sprite:public/img/sample-sprite
+public/_dist/img/sample-sprite-e6bf5.png:public/img/sample-sprite-e6bf5.png
+public/_dist/img/sample-sprite.json:public/img/sample-sprite.json
+public/_dist/img/sample-sprite/joy.png:public/img/sample-sprite/joy.png

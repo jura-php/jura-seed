@@ -1,3 +1,0 @@
-var plugin = {
-	deletar: true
-};

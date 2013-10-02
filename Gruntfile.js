@@ -29,14 +29,10 @@ module.exports = function(grunt) {
 		},
 
 		useminPrepare: {
-			html: '<%=config.src_dir%>/index.html',
+			html: 'app/views/**/*',
 			options: {
 				dest: '<%=config.dest_dir%>'
 			}
-		},
-
-		usemin: {
-			html: ['<%=config.dest_dir%>/index.html']
 		},
 
 		manifest: {
@@ -81,7 +77,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-
 		sprite: {
 			options: {
 				imagePath: 'public/img',
@@ -90,8 +85,18 @@ module.exports = function(grunt) {
 			build: {}
 		},
 
-	});
+		includeFTP: {
+			all: {
+				files: [
+					{dest: '<%=config.dest_dir%>/css/main.css', src: '<%=config.src_dir%>/css/*.css'},
+					{dest: '<%=config.dest_dir%>/js/main-built.js', src: '<%=config.src_dir%>/js/**/*.js'},
+					{src: ['**/*'], dest: '<%=config.dest_dir%>/img', expand: true, cwd: '<%=config.src_dir%>/img'},
+					{src: ['{*.eot,*.svg,*.woff,*.ttf}'], dest: '<%=config.dest_dir%>/css', expand: true, cwd: '<%=config.src_dir%>/css/fonts'}
+				]
+			}
 
+		}
+	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
@@ -103,10 +108,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-stylus-sprite');
+	grunt.loadNpmTasks('grunt-git-ftp-include');
 
 	grunt.registerTask('css', ['sprite', 'stylus'])
-	grunt.registerTask('livereload', ['watch']);
-	grunt.registerTask('build', ['clean', 'css', 'copy', 'useminPrepare', 'concat', 'usemin', 'uglify', 'imagemin', 'manifest']);
+	grunt.registerTask('dev', ['watch']);
+	grunt.registerTask('build', ['clean', 'css', 'copy', 'useminPrepare', 'concat', 'uglify', 'imagemin', 'manifest', 'includeFTP']);
 
 
 
