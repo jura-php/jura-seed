@@ -1,5 +1,9 @@
 <!doctype html>
+<?php if(!Config::item('usedist')){ ?>
 <html lang="pt-BR">
+<?php } else { ?>
+<html lang="pt-BR" manifest="<?=Config::item('publicDist')?>manifest.appcache">
+<?php } ?>
 <head>
 	<meta charset="UTF-8">
 	<base href="<?=Url::root()?>" />

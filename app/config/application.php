@@ -5,7 +5,7 @@ return array(
 
 	//use or not the build version
 	"usedist" => true,
-	"publicDist" => "_dist/",
+	"publicDist" => "public/_dist/",
 
 	//allowed directories that can have files downloaded from
 	"downloadPaths" => array(
