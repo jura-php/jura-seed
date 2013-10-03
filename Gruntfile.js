@@ -164,27 +164,45 @@ module.exports = function(grunt) {
 	grunt.registerTask('doctor', 'Verify the current status of configuration', function(){
 		var done = this.async();
 		var pkg = grunt.config('pkg');
+		var error = false;
 
-		//Git
-		grunt.util.spawn({
-			cmd : 'git',
-			args : ['config', '--get-all', 'remote.origin.url']
-		}, function (err, result) {
-			if (err) {
-				done();
-			} else {
-				if('git@bitbucket.org:joyinteractive/joy-seed.git' == result.stdout){
-					grunt.log.error(('WARNING:').bold + ' You are currently using the repository of Joy Seed. Run the ' + ('$ rm -Rf .git').bold + ' command and then a ' + ('$ git init').bold );
+		grunt.util.async.parallel([
+			//Git
+			function(callback){
+				grunt.util.spawn({
+					cmd : 'git',
+					args : ['config', '--get-all', 'remote.origin.url']
+				}, function (err, result) {
+					if (err) {
+						error = true;
+						callback(null)
+					} else {
+						if('git@bitbucket.org:joyinteractive/joy-seed.git' == result.stdout){
+							grunt.log.error(('WARNING:').bold + ' You are currently using the repository of Joy Seed. Run the ' + ('$ rm -Rf .git').bold + ' command and then a ' + ('$ git init').bold );
+							error = true;
+						}
+						callback(null)
+					}
+				});
+			},
+
+			//Package.json
+			function(callback) {
+				if(pkg.name == 'joy-seed') {
+					grunt.log.error('You need to change de package.json file and set your app information');
+					error = true;
 				}
-				done();
+
+				callback(null);
 			}
+
+		], function(err, results){
+			if(!error) {
+				grunt.log.ok('All right')
+			}
+
+			done();
 		});
-
-		//Package.json
-		if(pkg.name === 'joy-seed') {
-			grunt.log.error('You need to change de package.json file and set your app information');
-		}
-
 
 
 	});
