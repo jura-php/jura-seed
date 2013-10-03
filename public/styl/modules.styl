@@ -1,7 +1,46 @@
 /**
- * Home
+ * Logo
  */
-.home-logo
+.logo
 	ir()
 	sprite('sample-sprite', 'joy')
 	absolute left 50px top 50px
+
+/**
+ * Modal
+ */
+.modal
+	position absolute
+	z-index 10
+	left 0
+	right 0
+	top 0
+	bottom 0
+
+.modal-overlay
+	position fixed
+	left 0
+	right 0
+	bottom 0
+	top 0
+	opacity .75
+	background #000
+
+
+.modal-content
+	width 800px
+	left 50%
+	margin-left -400px
+	top 10%
+	position absolute
+	overflow hidden
+
+	padding 20px
+	border-radius 3px
+	background-color #fff
+	box-shadow 0 2px 15px rgba(0,0,0,.3)
+
+
+.modal-close
+	absolute right 20px top 20px
+

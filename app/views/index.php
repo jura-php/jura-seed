@@ -1,7 +1,5 @@
 <?php include("header.php"); ?>
 
-<div class="home">
-	<h1 class="home-logo">Joy</h1>
-</div>
+<div id="main"></div>
 
 <?php include("footer.php"); ?>

@@ -37,3 +37,5 @@ You need to read the documentation of git-ftp but is important to know some thin
 
 - If you are the deploying the first time, you need to run a `git init` instead of `git push`
 - If there isn't the configuration on Wiki page we will be glad if you create them.
+
+*Feel free to update this readme, and mainly correct the english mistakes*
