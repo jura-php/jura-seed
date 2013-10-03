@@ -28,6 +28,8 @@
 		},
 
 		home: function(){
+			if(this.openedModal) this.openedModal.close();
+
 			$('#main').html(templates['logo']({data: {name: 'Joy'}}))
 
 			mbone.delegate('#main', {
@@ -42,8 +44,8 @@
 
 		modal: function(){
 			this.openedModal = new Modal(templates['modal'], 'modal_data', {
-				open: function($el) {
-					console.log('modal opened');
+				onOpen: function($el) {
+					console.log('modal opened')
 
 					mbone.delegate($el, {
 						'click h1': function(){
@@ -52,7 +54,9 @@
 					})
 				},
 
-				close: function($el) {
+				onClose: function($el) {
+					delete router.openedModal;
+					router.navigate('', true)
 					console.log('modal closed')
 				}
 			})

@@ -3,10 +3,17 @@
 	//Modal
 	function Modal(template, uri, events) {
 		var modal = this,
+
 			events = _.extend({
-				open: function() {},
-				close: function() {}
-			}, events)
+				onOpen: function() {},
+				onClose: function() {}
+			}, events),
+
+			exports = {
+				close: close,
+				disableClose: disableClose,
+				enableClose: enableClose
+			}
 
 		function open() {
 			$('.modal').remove();
@@ -15,7 +22,8 @@
 			$('body').append(modal.$el);
 			modal.$el.css('top', $(document).scrollTop() + 'px')
 			bindEvents();
-			events.open(modal.$el);
+
+			events.onOpen.call(exports, modal.$el);
 		}
 
 		function bindEvents() {
@@ -31,7 +39,7 @@
 
 		function close() {
 			modal.$el.remove();
-			events.close(modal.$el);
+			events.onClose.call(exports, modal.$el);
 			return false;
 		}
 
@@ -57,12 +65,8 @@
 					})
 			}
 
+			return exports;
 
-			return {
-				close: close,
-				disableClose: disableClose,
-				enableClose: enableClose
-			}
 		}
 
 		return initialize();
