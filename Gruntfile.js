@@ -1,10 +1,17 @@
 module.exports = function(grunt) {
 
 	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
 
 		config: {
 			src_dir: 'public',
 			dest_dir: 'public/_dist',
+			banner: [
+				'/*',
+				' * <%= pkg.name %> - <%= pkg.version %>',
+				' * Copyright (c) <%= grunt.template.today("yyyy") %> Joy Interactive',
+				' */\n'
+			].join('\n')
 		},
 
 		clean: ["<%=config.dest_dir%>"],
@@ -65,9 +72,16 @@ module.exports = function(grunt) {
 
 		},
 
+		uglify: {
+			options: {
+				banner: '<%=config.banner%>'
+			}
+		},
+
 		stylus: {
 			compile: {
 				options: {
+					banner: '<%=config.banner%>',
 					paths: ['public'],
 					urlfunc: 'embedurl' // use embedurl('test.png') in our code to trigger Data URI embedding
 				},
@@ -95,7 +109,34 @@ module.exports = function(grunt) {
 				]
 			}
 
-		}
+		},
+
+
+		// "s3-sync": {
+		// 	options: {
+		// 		key: 'AKIAIUT4G42SWHKDWAGA',
+		// 		secret: '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',
+		// 		bucket: [NOME-DO-PROJETO],
+		// 		region: 'sa-east-1', //SP
+
+		// 		headers: {
+		// 			// Two Year cache policy (1000 * 60 * 60 * 24 * 730)
+		// 			"Cache-Control": "max-age=630720000, public",
+		// 			"Expires": new Date(Date.now() + 63072000000).toUTCString()
+		// 		}
+		// 	},
+		// 	prod: {
+		// 		files: [
+		// 			{
+		// 				gzip: false,
+		// 				root: '<%=config.src_dir%>',
+		// 				src: '<%=config.src_dir%>/**/*',
+		// 				dest: '/'
+		// 			}
+		// 		]
+		// 	}
+		// }
+		//
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-clean');
@@ -109,6 +150,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-stylus');
 	grunt.loadNpmTasks('grunt-stylus-sprite');
 	grunt.loadNpmTasks('grunt-git-ftp-include');
+	// grunt.loadNpmTasks('grunt-s3-sync');
 
 	grunt.registerTask('css', ['sprite', 'stylus'])
 	grunt.registerTask('dev', ['watch']);

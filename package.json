@@ -17,6 +17,7 @@
     "grunt-contrib-stylus": "~0.8.0",
     "grunt-stylus-sprite": "~1.0.1",
     "nib": "~1.0.1",
-    "grunt-git-ftp-include": "~1.0.0"
+    "grunt-git-ftp-include": "~1.0.0",
+    "grunt-s3-sync": "~0.4.1"
   }
 }
