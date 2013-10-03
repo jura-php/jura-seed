@@ -30,9 +30,9 @@ module.exports = function(grunt) {
 		},
 
 		copy: {
-			html:		{src: ['*.html'], dest: '<%=config.dest_dir%>/', expand: true, cwd: '<%=config.src_dir%>/'},
-			css:		{src: ['*.css'], dest: '<%=config.dest_dir%>/css/', expand: true, cwd: '<%=config.src_dir%>/css/'},
-			htaccess:	{src: ['.htaccess'], dest: '<%=config.dest_dir%>/', expand: true, cwd: '<%=config.src_dir%>/'}
+			gif:		{src: ['*.gif'], dest: '<%=config.dest_dir%>/img/', expand: true, cwd: '<%=config.src_dir%>/img/'},
+			folders:	{src: ['**', '\.*', '!styl/**', '!js/**', '!img/**', '!_dist/**'], dest: '<%=config.dest_dir%>', expand: true, cwd: '<%=config.src_dir%>'}
+
 		},
 
 		useminPrepare: {
@@ -66,12 +66,12 @@ module.exports = function(grunt) {
 					spawn: true,
 					livereload: false
 				},
-				files: ['public/**/*.styl'],
+				files: ['<%=config.src_dir%>/**/*.styl'],
 				tasks: ['css']
 			},
 
 			other: {
-				files: ['public/**/*', '!public/**/*.styl'],
+				files: ['<%=config.src_dir%>/**/*', '!<%=config.src_dir%>/**/*.styl'],
 			}
 
 		},
@@ -86,18 +86,18 @@ module.exports = function(grunt) {
 			compile: {
 				options: {
 					banner: '<%=config.banner%>',
-					paths: ['public'],
+					paths: ['<%=config.src_dir%>'],
 					urlfunc: 'embedurl' // use embedurl('test.png') in our code to trigger Data URI embedding
 				},
 				files: {
-					'public/css/main.css': 'public/styl/main.styl'
+					'<%=config.src_dir%>/css/main.css': '<%=config.src_dir%>/styl/main.styl'
 				}
 			}
 		},
 
 		sprite: {
 			options: {
-				imagePath: 'public/img',
+				imagePath: '<%=config.src_dir%>/img',
 				imageHttpPath: '../img',
 			},
 			build: {}
@@ -160,14 +160,12 @@ module.exports = function(grunt) {
 	grunt.registerTask('dev', ['watch']);
 	grunt.registerTask('build', ['clean', 'css', 'copy', 'useminPrepare', 'concat', 'uglify', 'imagemin', 'manifest', 'includeFTP']);
 
+
 	grunt.registerTask('doctor', 'Verify the current status of configuration', function(){
 		var done = this.async();
 		var pkg = grunt.config('pkg');
 
-		if(pkg.name === 'joy-seed') {
-			grunt.log.error('You need to change de package.json file and set your app information');
-		}
-
+		//Git
 		grunt.util.spawn({
 			cmd : 'git',
 			args : ['config', '--get-all', 'remote.origin.url']
@@ -181,6 +179,13 @@ module.exports = function(grunt) {
 				done();
 			}
 		});
+
+		//Package.json
+		if(pkg.name === 'joy-seed') {
+			grunt.log.error('You need to change de package.json file and set your app information');
+		}
+
+
 
 	});
 
