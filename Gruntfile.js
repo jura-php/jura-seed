@@ -62,6 +62,10 @@ module.exports = function(grunt) {
 			},
 
 			styles: {
+				options: {
+					spawn: true,
+					livereload: false
+				},
 				files: ['public/**/*.styl'],
 				tasks: ['css']
 			},
@@ -155,6 +159,41 @@ module.exports = function(grunt) {
 	grunt.registerTask('css', ['sprite', 'stylus'])
 	grunt.registerTask('dev', ['watch']);
 	grunt.registerTask('build', ['clean', 'css', 'copy', 'useminPrepare', 'concat', 'uglify', 'imagemin', 'manifest', 'includeFTP']);
+
+	grunt.registerTask('doctor', 'Verify the current status of configuration', function(){
+		var done = this.async();
+		var pkg = grunt.config('pkg');
+
+		if(pkg.name === 'joy-seed') {
+			grunt.log.error('You need to change de package.json file and set your app information');
+		}
+
+		grunt.util.spawn({
+			cmd : 'git',
+			args : ['config', '--get-all', 'remote.origin.url']
+		}, function (err, result) {
+			if (err) {
+				done();
+			} else {
+				if('git@bitbucket.org:joyinteractive/joy-seed.git' == result.stdout){
+					grunt.log.error(('WARNING:').bold + ' You are currently using the repository of Joy Seed. Run the ' + ('$ rm -Rf .git').bold + ' command and then a ' + ('$ git init').bold );
+				}
+				done();
+			}
+		});
+
+	});
+
+	grunt.registerTask('help', 'A simple help', function(){
+		grunt.log.subhead(('$ grunt css').cyan);
+		grunt.log.writeln('Generate the /public/css/main.css file that corresponds to /public/styl/main.styl');
+
+		grunt.log.subhead(('$ grunt dev').cyan);
+		grunt.log.writeln('Start the watch task that will generate the /public/css/main.css automatically when it changes and enable the livereload. Do not forget the LiveReload chrome extension.');
+
+		grunt.log.subhead(('$ grunt build').cyan);
+		grunt.log.writeln('Generate a `compiled` version of the project on /public/_dist/ directory. To configure the project to use the compiled version you need to set the '+('usedist').bold+' application config to true on /app/config/application.php');
+	})
 
 
 
