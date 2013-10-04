@@ -1,11 +1,12 @@
 #Usage
 
-1. Clone this repository with `--recursive` option on git clone to get the submodule `system` wich is the core. Ex: `$ git clone --recursive git@bitbucket.org:joyinteractive/joy-lib-j.git nome-do-projeto`
+1. Clone this repository with `--recursive` option on git clone to get the submodule `system` wich is the core. Ex: `$ git clone --recursive git@bitbucket.org:joyinteractive/joy-seed.git nome-do-projeto`
 2. Remove the .git from the cloned repository running a `rm -Rf .git` on the root of the project. Ex: `$ cd nome-do-projeto && rm -Rf .git`
-3. Install the node dependencies by running a `$ npm install`. This dependencies are using by [Grunt](http://gruntjs.com)
-4. Change the name of the project on the `package.json` file.
-5. If you need to know what Grunt can do, run `$ grunt help`.
-6. Its time to run `$ grunt doctor` to see if it is all right.
+3. Init a new git repository by running `git init` and then bind to the remote. Ex: `$ git init && git remote add origin git@bitbucket.org:joyinteractive/nome-do-projeto.git`
+4. Install the node dependencies by running a `$ npm install`. This dependencies are using by [Grunt](http://gruntjs.com)
+5. Change the name of the project on the `package.json` file.
+6. If you need to know what Grunt can do, run `$ grunt help`.
+7. Its time to run `$ grunt doctor` to see if it is all right.
 
 
 #Front-end
