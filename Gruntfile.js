@@ -166,6 +166,8 @@ module.exports = function(grunt) {
 		var pkg = grunt.config('pkg');
 		var error = false;
 
+
+		//Todo: s3-sync
 		grunt.util.async.parallel([
 			//Git
 			function(callback){

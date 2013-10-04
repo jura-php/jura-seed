@@ -1,3 +1,12 @@
+-pos(type, args)
+	i = 0
+	position: unquote(type)
+	{args[i]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+	{args[i += 1]}: args[i + 1] is a 'unit' ? args[i += 1] : 0
+	{args[i += 1]}: args[i + 2] is a 'unit' ? args[i += 2] : 0
+	{args[i += 1]}: args[i + 3] is a 'unit' ? args[i += 3] : 0
+
+
 font-face(family, file = family)
 	@font-face {
 		font-family: family
@@ -19,5 +28,4 @@ display()
 		display arguments[0]
 
 ir()
-	font-size 0
-	line-height 0
+	font 0/0 a
