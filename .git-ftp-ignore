@@ -1,1 +1,12 @@
+Gruntfile.js
+package.json
+
+.gitignore
+.gitmodules
+
+.git-ftp-ignore
+.git-ftp-include
+
+*.md
+*.sh
 *.sql
