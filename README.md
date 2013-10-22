@@ -17,7 +17,7 @@ You need to compile your .styl files by running `$ grunt css` each time or `$ gr
 To enable the LiveReload you need to run `$ grunt dev` and then enable the [livereload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei) plugin on Chrome.
 
 ##Imagemagick
-You need Imagemagick installed to generate sprites. You can do so by running `brew install imagemagick` on your console.
+You need Imagemagick installed to generate sprites. You can do so by running `$ brew install imagemagick`.
 
 ##Generating the distribution version
 When you run the `$ grunt build` task, the Grunt will generate a folder `/public/_dist` with all the compiled files and a copy of files that wont be compiled. Its important to learn about Grunt and read the Gruntfile.js to see what Grunt are doing exactly.
