@@ -26,7 +26,8 @@ After running the build you need to enable it on `/app/config/application.php` b
 
 #Backend
 To start using the Backend, you need to configure the `/config/database.php`. If this file doesn't exists you need to duplicate the `/config/databases.sample.php`.
-A better explanation will be written here soon. But not too long. hehehe :)
+
+For more information head to the [Lib J's wiki page](https://bitbucket.org/joyinteractive/joy-lib-j/wiki/)
 
 #Deploy
 Normally, we use [git-ftp](https://github.com/resmo/git-ftp) on our projects. You need to configure it by openning the `.git/config` file and setting up the server configuration. The first developer that configure this must edit the Wiki on bitbucket and paste the [git-ftp] configuration. Example:
