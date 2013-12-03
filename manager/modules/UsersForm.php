@@ -20,9 +20,14 @@ class UsersForm extends FormModule
 		$f->validation("email");
 		$this->addField($f, "LOFCRU");
 
-		$f = new ToggleField();
+		$f = new TextField("username", "Usuário");
 		$this->addField($f, "LOFCRU");
 
+		$f = new PasswordField("password", "Senha");
+		$this->addField($f, "CRU");
+
+		$f = new ToggleField();
+		$this->addField($f, "LOFCRU");
 	}
 }
 ?>
