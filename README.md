@@ -1,9 +1,9 @@
 #Usage
 
-1. Clone this repository. Ex: `$ git clone git@bitbucket.org:joyinteractive/joy-seed.git nome-do-projeto`
-2. Remove the .git from the cloned repository running a `rm -Rf .git` command on the root of the project. Ex: `$ cd nome-do-projeto && rm -Rf .git`
-3. Init a new git repository by running `$ git init` and then bind to the remote repo. Ex: `$ git init && git remote add origin git@bitbucket.org:joyinteractive/nome-do-projeto.git`
-4. Add system as a submodule by running `$ git submodule add git@bitbucket.org:joyinteractive/joy-lib-j.git system`
+1. Clone this repository. Ex: `$ git clone git@github.com:jura-php/jura-seed.git my-project`
+2. Remove the .git from the cloned repository running a `rm -Rf .git` command on the root of the project. Ex: `$ cd my-project && rm -Rf .git`
+3. Init a new git repository by running `$ git init` and then bind to the remote repo. Ex: `$ git init && git remote add origin git@bitbucket.org:myuser/my-project.git`
+4. Add system as a submodule by running `$ git submodule add git@github.com:jura-php/jura.git system`
 5. Install the node dependencies by running a `$ npm install`. These dependencies are used by [Grunt](http://gruntjs.com)
 6. Change the name of the project on the `package.json` file.
 7. If you need to know what Grunt can do, run `$ grunt help`.
@@ -26,22 +26,4 @@ After running the build you need to enable it on `/app/config/application.php` b
 
 #Backend
 To start using the Backend, you need to configure the `/config/database.php`. If this file doesn't exists you need to duplicate the `/config/databases.sample.php`.
-
 For more information head to the [Lib J's wiki page](https://bitbucket.org/joyinteractive/joy-lib-j/wiki/)
-
-#Deploy
-Normally, we use [git-ftp](https://github.com/resmo/git-ftp) on our projects. You need to configure it by openning the `.git/config` file and setting up the server configuration. The first developer that configure this must edit the Wiki on bitbucket and paste the [git-ftp] configuration. Example:
-
-```
-[git-ftp]
-	url = ftp.site.com.br/public_html
-	user = siteuser
-	password = password123
-```
-
-You need to read the documentation of git-ftp but is important to know some details:
-
-- If you are deploying for the first time, you need to run a `git init` instead of `git push`
-- If there is not a configuration on Wiki's page we will be glad if you create it.
-
-*Feel free to update this readme, and mainly correct the english mistakes*
